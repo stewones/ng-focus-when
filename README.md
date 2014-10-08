@@ -12,7 +12,7 @@ Include `ng-focus-when.js` in your HTML document somewhere after you have set
 up AngularJS.
 
 ```html
-<script src="ng-focus-when.js">`
+<script src="ng-focus-when.js">
 ```
 
 Make sure that `ng-focus-when` is a dependency in your AngularJS app.
