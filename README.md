@@ -1,10 +1,10 @@
 # ng-focus-when
 
-Provides an simple focus sync alternative for AngularJS
+Provides a simple focus sync alternative for AngularJS
 
 ## Why this?
 
-AngularJS doesn’t have a alternative directive to support setting focus.
+AngularJS doesn’t have an alternative directive to support setting focus.
 
 ## Usage
 
