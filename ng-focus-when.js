@@ -24,21 +24,25 @@
 "use strict";
 (function() {
     var mod = angular.module("ngFocusWhen", []);
-    mod.directive('ngFocusWhen', function($timeout, $rootScope) {
-        return {
-            restrict: 'A',
-            scope: {
-                focusValue: "=ngFocusWhen"
-            },
-            link: function($scope, $element, attrs) {
-                $scope.$watch("focusValue", function(currentValue, previousValue) {
-                    if (currentValue === true && !previousValue) {
-                        $element[0].focus();
-                    } else if (currentValue === false && previousValue) {
-                        $element[0].blur();
-                    }
-                });
+    mod.directive('ngFocusWhen', ['$timeout',
+        function($timeout) {
+            return {
+                restrict: 'A',
+                scope: {
+                    focusValue: "=ngFocusWhen"
+                },
+                link: function($scope, $element, attrs) {
+                    $scope.$watch("focusValue", function(currentValue, previousValue) {
+                        $timeout(function() {
+                            if (currentValue === true && !previousValue) {
+                                $element[0].focus();
+                            } else if (currentValue === false && previousValue) {
+                                $element[0].blur();
+                            }
+                        }, 500);
+                    });
+                }
             }
         }
-    });
+    ]);
 })();
